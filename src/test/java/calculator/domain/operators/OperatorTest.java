@@ -14,6 +14,7 @@ public class OperatorTest {
 
         String wrongOperator = "korea";
 
+        // Assert
         assertThatThrownBy(() -> new Operand(wrongOperator))
                 .isInstanceOf(IllegalArgumentException.class);
     }
