@@ -14,6 +14,7 @@ public class OperandTest {
         // Arrange
         String wrongNumber = "wrongNumber";
 
+        // Assert
         assertThatThrownBy(() -> new Operand(wrongNumber))
                 .isInstanceOf(IllegalArgumentException.class);
     }
