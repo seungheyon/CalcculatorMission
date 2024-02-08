@@ -13,12 +13,12 @@ public class AdditionTest {
     @Test
     void additionOperationTest(){
         // Arrange
-        String operand1 = "2.0";
-        String operand2 = "3.0";
-        String expectedResult = "5.0";
+        Double operand1 = 2.0;
+        Double operand2 = 3.0;
+        Double expectedResult = 5.0;
 
         // Act
-        var actual = addition.addition(operand1, operand2);
+        var actual = addition.operate(operand1, operand2);
 
         // Assert
         assertThat(actual).isEqualTo(expectedResult);

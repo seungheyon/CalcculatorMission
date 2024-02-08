@@ -16,6 +16,6 @@ public class OperandTest {
 
         // Assert
         assertThatThrownBy(() -> new Operand(wrongNumber))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(NumberFormatException.class);
     }
 }

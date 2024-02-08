@@ -1,7 +1,9 @@
 package calculator.domain.operators;
 
-public class Multiplication implements Operator{
-    String multiplication(String operand1, String operand2){
-        return "";
+public class Multiplication implements Operators {
+
+    @Override
+    public Double operate(Double operand1, Double operand2){
+        return operand1 * operand2;
     }
 }

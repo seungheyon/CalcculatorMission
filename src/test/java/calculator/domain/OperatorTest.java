@@ -1,4 +1,4 @@
-package calculator.domain.operators;
+package calculator.domain;
 
 import calculator.domain.Operand;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +11,6 @@ public class OperatorTest {
     @Test
     void operatorValidateTest(){
         // Arrange
-
         String wrongOperator = "korea";
 
         // Assert

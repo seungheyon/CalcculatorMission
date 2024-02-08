@@ -1,13 +1,17 @@
 package calculator.domain;
 
 public class Operand {
-   private int operand;
+   private Double operand;
 
     public Operand(String operand) {
         this.operand = validateIsNumber(operand);
     }
 
-    private int validateIsNumber(String number){
-       return Integer.parseInt(number);
+    private Double validateIsNumber(String number){
+       return Double.parseDouble(number);
+    }
+
+    public Double getOperand() {
+        return operand;
     }
 }

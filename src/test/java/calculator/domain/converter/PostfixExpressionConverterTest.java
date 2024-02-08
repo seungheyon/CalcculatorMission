@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class PostfixExpressionConverterTest {
     PostfixExpressionConverter postfixExpressionConverter = new PostfixExpressionConverter();
@@ -15,8 +16,8 @@ public class PostfixExpressionConverterTest {
     @Test
     void seperateOperationTest(){
         //Assert
-        String operation = "3+5*2";
-        List<String> expectedExpression = new ArrayList<String>(List.of("3","+","5","*","2"));
+        String operation = "3 + 14 - 2 * 5";
+        List<String> expectedExpression = new ArrayList<String>(List.of("3","+","14","-","2","*","5"));
 
         //Act
         var actual = postfixExpressionConverter.seperateOperation(operation);
@@ -29,13 +30,27 @@ public class PostfixExpressionConverterTest {
     @Test
     void postfixExpressionConverterTest(){
         //Assert
-        List<String> infixExpression = new ArrayList<String>(List.of("3","+","5","*","2"));
-        List<String> expectedExpression = new ArrayList<String>(List.of("3","5","2","*","+"));
+        List<String> infixExpression1 = new ArrayList<String>(List.of("3","+","5","*","2"));
+        List<String> expectedExpression1 = new ArrayList<String>(List.of("3","5","2","*","+"));
+
+        List<String> infixExpression2 = new ArrayList<String>(List.of("3","*","5","+","2"));
+        List<String> expectedExpression2 = new ArrayList<String>(List.of("3","5","*","2","+"));
+
+        List<String> infixExpression3 = new ArrayList<String>(List.of("3","+","14","-","2","*","5"));
+        List<String> expectedExpression3 = new ArrayList<String>(List.of("3","14","+","2","5","*","-"));
+
+
 
         //Act
-        var actual = postfixExpressionConverter.convertInfixToPostfix(infixExpression);
+        var actual1 = postfixExpressionConverter.convertInfixToPostfix(infixExpression1);
+        var actual2 = postfixExpressionConverter.convertInfixToPostfix(infixExpression2);
+        var actual3 = postfixExpressionConverter.convertInfixToPostfix(infixExpression3);
+
 
         //Assert
-        assertThat(actual).isEqualTo(expectedExpression);
+        assertThat(actual1).isEqualTo(expectedExpression1);
+        assertThat(actual2).isEqualTo(expectedExpression2);
+        assertThat(actual3).isEqualTo(expectedExpression3);
+
     }
 }

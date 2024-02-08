@@ -16,12 +16,14 @@ public class CalculateServiceTest {
     void operandValidateTest(){
         // Arrange
         Stack<String> postfixExpression = new Stack<>();
-        postfixExpression.push("3");
-        postfixExpression.push("4");
-        postfixExpression.push("2");
-        postfixExpression.push("*");
         postfixExpression.push("-");
-        String expectedResult = "5";
+        postfixExpression.push("*");
+        postfixExpression.push("5");
+        postfixExpression.push("2");
+        postfixExpression.push("+");
+        postfixExpression.push("14");
+        postfixExpression.push("3");
+        Double expectedResult = 7.0;
 
         // Act
         var actual = calculateService.calculatePostfixExpression(postfixExpression);

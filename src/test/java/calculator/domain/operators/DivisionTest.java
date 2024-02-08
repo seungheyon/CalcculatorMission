@@ -14,12 +14,12 @@ public class DivisionTest {
     @Test
     void divisionOperationTest(){
         // Arrange
-        String operand1 = "6.0";
-        String operand2 = "2.0";
-        String expectedResult = "3.0";
+        Double operand1 = 6.0;
+        Double operand2 = 2.0;
+        Double expectedResult = 3.0;
 
         // Act
-        var actual = division.division(operand1, operand2);
+        var actual = division.operate(operand1, operand2);
 
         // Assert
         assertThat(actual).isEqualTo(expectedResult);
@@ -29,11 +29,11 @@ public class DivisionTest {
     @Test
     void checkZeroDivide(){
         // Arrange
-        String operand1 = "6.0";
-        String operand2 = "0";
+        Double operand1 = 6.0;
+        Double operand2 = 0.0;
 
         // Assert
-        assertThatThrownBy(() -> division.division(operand1, operand2))
+        assertThatThrownBy(() -> division.operate(operand1, operand2))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
